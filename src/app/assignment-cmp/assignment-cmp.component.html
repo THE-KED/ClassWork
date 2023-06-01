@@ -1,0 +1,95 @@
+<div class="content">
+  <div class="img">
+    <span class="classeName">
+      {{ClasseName}}
+    </span>
+    
+  </div>
+  <div class="infos" (click)="setOpen(true)">
+
+    <div class="top">
+      REQUETTES SQL  
+      <ion-badge color="success"></ion-badge>
+    </div>
+    <div class="bottom">
+      <span class="inf">Date limite :
+        <span class="val">26/05/2023</span>
+      </span>
+      <span class="inf">Fichier :
+        <span class="val">PDF</span>
+      </span>
+      <span class="inf" id="rendu">RENDU </span>
+    </div>
+
+  </div>
+</div>
+
+
+<ion-modal [isOpen]="isModalOpen" mode="ios">
+  <ng-template>
+    <ion-header>
+      <div color="primary" id="topBar">
+        <ion-button id="menu_btn" color="#FFFFFF" mode="ios" (click)="setOpen(false)">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+    
+        <span id="page_title">DEVOIRS</span>
+        
+        <ion-avatar>
+          <ion-img src="../assets/Account.svg"></ion-img>
+        </ion-avatar>
+      </div>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+
+      <div class="img">
+        <span class="classeName">
+          {{ClasseName}}
+        </span>
+      </div>
+
+      <div class="sub-info">
+        <div class="date">
+          Depuis le : 20/05/2023<br>
+          Jusqu'au : 29/05/2023
+        </div>
+        <div class="download">
+          inclue un fichier
+          <ion-icon name="download-outline"></ion-icon>
+        </div>
+        <div class="type">
+          PDF
+        </div>
+
+      </div>
+      
+      <div class="description">
+
+        <h3>REQUETTES SQL</h3>
+
+        <p>
+          Figma ipsum component variant main layer.
+          Horizontal variant stroke scrolling editor
+          link list. Mask team rotate link move create. 
+          Thumbnail group community overflow figjam 
+          overflow pencil. Flatten draft link opacity 
+          community layout.
+        </p>
+
+      </div>
+      <div class="bottom">
+        <div class="input-content">
+          <ion-icon name="document-attach" color="primary" class="doc-icon"></ion-icon>
+          <span class="ftype">PDF :</span>
+          <input type="file" class="inp" placeholder="Fichier">
+        </div>
+        <ion-button class="send-btn" color="#FFFFFF" >
+          <ion-icon name="paper-plane" class="send-icon"></ion-icon>
+              Envoyer   
+        </ion-button>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+

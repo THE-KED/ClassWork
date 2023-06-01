@@ -1,0 +1,133 @@
+#topBar{
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    height: 60px;
+    
+    left: 0px;
+    top: 0px;
+  
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  
+    ion-avatar{
+      margin-right:15px;
+  
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.1);
+      width: 40px;
+      height: 40px;
+      left: 355px;
+      top: 11px;
+      
+      ion-img{
+        width: 28px;
+        height: 27.67px;
+      }
+  
+    }
+  
+    #page_title{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-sizing: content-box;
+      width: 123.64px;
+      height: 30px;
+      left: calc(50% - 123.64px/2 - 0.18px);
+      top: 16px;
+  
+      border-width: 1px 0px 3.5px 0px;
+      border-style: solid;
+      border-color: rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+  
+      font-family: 'Roboto-regular';
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 18px;
+      /* identical to box height */
+  
+      color: #22A2E3;
+  
+  
+  
+    }
+    #menu_btn{
+  
+      position: relative;
+      margin-left:15px;
+      display: flex;
+      width: 35px;
+  
+      ion-icon{
+        position: absolute;
+        width: 30px;
+        height: 35.19px;
+  
+        color: #22A2E3;
+      }
+    }
+  
+}
+.filter-bar{
+    z-index: 2;
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    top: 65px;
+    height: 44px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #FFFFFF;
+
+    border: 0.7px solid #A6A6A6;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+ion-searchbar.ios{
+    width: 60%;
+    height: 30px;
+    --background: #E8F5FC;
+    color: #22A2E3;
+    // border: 1px solid #22A2E3;
+    background: #E8F5FC;
+    border-radius: 4px;
+    --icon-color: #22A2E3;
+    margin-left: 15px;
+}
+.search-btn{
+    font-size: 12px;
+
+
+}
+.alt{
+ --background: red !important;
+ color: #22A2E3 !important;
+}
+ion-list{
+    position: relative;
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+}
+app-cours-cour-card{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

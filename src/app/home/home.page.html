@@ -1,0 +1,90 @@
+
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="tertiary">
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">This is the menu content.</ion-content>
+</ion-menu>
+
+
+<ion-content [fullscreen]="true" id="main-content">
+
+  <div color="primary" id="topBar">
+    <ion-menu-button id="menu_btn" color="#FFFFFF" mode="ios">
+      <ion-icon name="menu-outline"></ion-icon>
+    </ion-menu-button>
+
+    <span id="page_title">ACCEUILE</span>
+    
+    <ion-avatar>
+      <ion-img src="../assets/Account.svg"></ion-img>
+    </ion-avatar>
+  </div>
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+
+    <div class="choices">
+
+      <ion-button class="btn" color="#FFFFFF" routerLink="/assignment.page">
+        <div class="option">
+          <span class="icon">
+            <ion-icon name="book" color="primary"></ion-icon>
+          </span>
+          <span class="message">MES DEVOIRS</span>
+          <span class="bage"></span>
+        </div>
+      </ion-button>
+
+      <ion-button class="btn" color="#FFFFFF" routerLink="/evaluations-display">
+        <div class="option">
+          <span class="icon">
+            <ion-icon name="clipboard" color="secondary"></ion-icon>
+          </span>
+          <span class="message">MES EVALUATIONS</span>
+          <span class="bage"></span>
+        </div>
+      </ion-button>
+
+      <ion-button class="btn" color="#FFFFFF">
+        <div class="option">
+          <span class="icon">
+            <ion-icon name="easel" color="danger"></ion-icon>
+          </span>
+          <span class="message" routerLink="/cours.page">MES CLASSES</span>
+          <span class="bage"></span>
+        </div>
+      </ion-button>
+
+      <ion-button class="btn" color="#FFFFFF">
+        <div class="option">
+          <span class="icon">
+            <ion-icon name="person" color="success"></ion-icon>
+          </span>
+          <span class="message">MES INFORMATIONS</span>
+          <span class="bage"></span>
+        </div>
+      </ion-button>
+
+      <ion-button class="btn" color="#FFFFFF">
+        <div class="option">
+          <span class="icon">
+            <ion-icon name="notifications" color="warning"></ion-icon>
+          </span>
+          <span class="message">MES NOTIFICATIONS</span>
+          <span class="bage"></span>
+        </div>
+      </ion-button>
+
+    </div>
+  
+    <div class="footer"></div>
+  </div>
+</ion-content>

@@ -1,0 +1,19 @@
+.content{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 90%;
+    height: 35%;
+    top: 130px;
+    left: 5%;
+
+    display: flex;
+    justify-content: center;
+    background: #FFFFFF;
+    border: 1px solid #A6A6A6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+p{
+    width: 90%;
+}

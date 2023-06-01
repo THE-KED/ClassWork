@@ -1,0 +1,167 @@
+
+ion-content{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+
+
+
+}
+
+#topBar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    background-color: #22A2E3;
+
+    #logo{
+        position: relative;
+        align-self: center;
+        justify-self: center;
+        position: relative;
+        width: 250px;
+        height: 80px;
+    }
+}
+.content{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    width: 100%;
+
+    .pan{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 80px;
+        height: 80vh;
+        width: 85vw;
+        min-height: 500px;
+        min-width: 250px;
+        background-color: #FFFFFF ;
+        color: #000000;
+
+        border-radius: 30px;
+
+    }
+}
+.form-title{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Inknut Antiqua reg';
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 28px;
+
+
+    color: rgba(0, 0, 0, 0.6);
+
+
+    
+
+    .title{
+
+        margin: 0;
+        font-family: 'Inknut Antiqua';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 46px;
+    
+        color: #000000;
+    }
+    .sub{
+    
+        font-family: 'Inknut Antiqua reg';
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 28px;
+    
+
+        border: #000000 1px solid;
+
+        color: rgba(0, 0, 0, 0.6);
+    }
+}
+.panFooter{
+        font-family: 'Inknut Antiqua';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 31px;
+    
+    
+    color: rgba(0, 0, 0, 0.8);
+}
+.panInput{
+    position: relative;
+    width: 60vw;
+    min-width: 250px;
+
+    ion-input{
+        margin: 40px 0 30px 0;
+        --padding-start: 20px;
+        color: #464646;
+        
+    }
+    .ion-valid.sc-ion-input-md-h {
+        --highlight-color: #3880ff;
+    }
+
+}
+.panFooter{
+
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    ion-button{
+        width: 50%;
+        min-width: 200px;
+        height: 40px;
+        --border-radius: 5px 5px 5px 5px;
+        font-family: 'Inknut Antiqua';
+        font-style: normal;
+    }
+
+
+
+}
+.copyrigth{
+
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+
+    .c{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        font-size:larger;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 30px;
+        min-width: 30px;
+        color: white;
+        font-weight: bolder;
+        font-size: larger;
+        background-color: #22A2E3;
+        font-weight: 400;
+        border-radius: 50%;
+    }
+}

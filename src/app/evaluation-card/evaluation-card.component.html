@@ -1,0 +1,32 @@
+<div class="content">
+  <div class="top-{{evaluation.getType()}}"> 
+    <span class="type">
+      {{evaluation.getType()}}
+    </span>
+    <span class="date">
+      Debut le : {{evaluation.getStartDate() | date:"dd MMM yyyy"}}<br>
+      A : {{evaluation.getDuree()|date:"hh:mm"}}
+    </span>
+  </div>
+  <div class="body">
+    <span class="slide" id="titre">{{evaluation.getClasse().getName()}}</span>
+    <span class="slide">    
+      <span class="duree" *ngIf='evaluation.getType()=="TEST"'>
+        Expire le : {{evaluation.getExpiration() | date:"dd MMM yyyy"}}<br>
+        A : {{evaluation.getDuree()|date:"hh:mm"}}
+      </span>
+      <span>
+        N:1
+      </span>
+    </span>
+    <span class="slide">
+      <span class="duree">
+        Duree: <span>{{evaluation.getDuree()|date:"hh:mm"}}</span> 
+      </span>
+      <span class="note">
+        Note: <span>??/{{evaluation.getQuestionnaire().getQuestions().length}}</span>
+      </span>
+    </span>
+  </div>
+  <ion-button [routerLink]="['/exam' , index ]"  class="btn-{{evaluation.getType()}}"> COMMENCER </ion-button>
+</div>

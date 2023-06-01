@@ -1,0 +1,38 @@
+<ion-content [fullscreen]="true" color="primary">
+  <ion-header collapse="condense"></ion-header>
+
+  <div color="primary" id="topBar">
+    <ion-img id="logo" src="../assets/ClassWork.svg"></ion-img>
+  </div>
+
+  <div class="content">
+    <div class="pan">
+
+        <span class="form-title"> 
+          <p class="title">Heureux de vous Revoir !</p>
+          Connectez vous a Classwork pour continuer
+        </span>
+        
+        <span class="panInput">
+
+          <ion-item>
+            <ion-input fill="outline" label="Matricule" labelPlacement="floating" placeholder="" [(ngModel)]="Matricule" (ngModelChange)="check()"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input fill="outline" label="Mot de passe" labelPlacement="floating" placeholder=""[(ngModel)]="Pass" (ngModelChange)="check()"></ion-input>
+          </ion-item>
+        </span>
+
+        <span class="panFooter">
+
+          <ion-button expand="block" (click)="send()" [disabled]="!isValid">Se Connecter</ion-button>
+
+          <p>Vous etes nouveau? <a routerLink="/sign" >S’inscrire</a> </p>
+
+          <span class="copyrigth"> <span class="c">C</span> opyright 2023 par Classwork.</span>
+
+        </span>
+
+    </div>
+  </div>
+</ion-content>

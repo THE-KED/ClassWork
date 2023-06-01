@@ -1,0 +1,7 @@
+<div class="content">
+  <ion-item class="reponse" *ngFor=" let reponse of question.getChoices(), index as i ">
+    <ion-checkbox [(ngModel)]="val[i]" ></ion-checkbox>
+    <p>{{reponse}}</p>
+  </ion-item>
+  <ion-button color="primary" (click)="valider()">VALIDER</ion-button>
+</div>

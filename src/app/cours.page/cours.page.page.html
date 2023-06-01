@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true">
+  <div color="primary" id="topBar">
+    <ion-button id="menu_btn" color="#FFFFFF" mode="ios">
+      <ion-icon name="menu-outline"></ion-icon>
+    </ion-button>
+
+    <span id="page_title">CLASSES</span>
+    
+    <ion-avatar>
+      <ion-img src="../assets/Account.svg"></ion-img>
+    </ion-avatar>
+  </div>
+
+
+  <div class="filter-bar">
+    <ion-searchbar animated="true" placeholder="identifiant" mode="ios"></ion-searchbar>
+    <ion-button class="search-btn" fill="clear"> Rechercher </ion-button>
+  </div>
+
+
+  <ion-list>
+    <app-cours-cour-card></app-cours-cour-card>
+  </ion-list>
+
+</ion-content>

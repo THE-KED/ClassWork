@@ -1,0 +1,49 @@
+<ion-content [fullscreen]="true">
+  <div color="primary" id="topBar">
+    <ion-button id="menu_btn" color="#FFFFFF" mode="ios">
+      <ion-icon name="menu-outline"></ion-icon>
+    </ion-button>
+
+    <span id="page_title">EVALUATIONS</span>
+    
+    <ion-avatar>
+      <ion-img src="../assets/Account.svg"></ion-img>
+    </ion-avatar>
+  </div>
+  <div class="content">
+
+
+
+    <app-question [question]="questions.getQuestions()[indexQ]">
+
+    </app-question>
+
+
+
+  </div>
+  <div class="ploading">
+    <div class="loading">
+      <div class="indic"> {{indexQ+1}}/ {{length}} </div>
+      <ion-progress-bar class="bar" [value]="progressBart()"></ion-progress-bar>
+    </div>
+  </div>
+
+
+
+  <div class="bottom-bar">
+    <ion-button fill="Clear" class="swape-btn" (click)="back()">
+      <ion-icon class="btn-img" name="arrow-back-circle-outline" ></ion-icon>
+    </ion-button>
+
+    <div class="pan-point">
+      <span class="point"></span>
+      <span class="point-actif"></span>
+      <span class="point"></span>
+    </div>
+
+    <ion-button fill="Clear" class="swape-btn" (click)="next()" *ngIf="indexQ!=length-1">
+      <ion-icon class="btn-img" name="arrow-forward-circle-outline" ></ion-icon>
+    </ion-button>
+    <ion-button fill="Clear" *ngIf="indexQ==length-1" class="end" > Terminer </ion-button>
+  </div>
+</ion-content>

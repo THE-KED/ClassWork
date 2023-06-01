@@ -1,0 +1,16 @@
+.content{
+    display: flex;
+    justify-content: center;
+}
+
+.Timer{
+    height: 22px;
+
+    position: absolute;
+    z-index: 4;
+
+    color: #9747FF;
+    right: 15px;
+    top: 95px;
+    font-size: small;
+}

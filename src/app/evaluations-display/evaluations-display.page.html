@@ -1,0 +1,37 @@
+<ion-content [fullscreen]="true">
+
+  <div color="primary" id="topBar">
+    <ion-button id="menu_btn" color="#FFFFFF" mode="ios">
+      <ion-icon name="menu-outline"></ion-icon>
+    </ion-button>
+
+    <span id="page_title">EVALUATIONS</span>
+    
+    <ion-avatar>
+      <ion-img src="../assets/Account.svg"></ion-img>
+    </ion-avatar>
+  </div>
+
+  <div class="filter-bar">
+      <div class="option" id="popover-button"> Trier par : 
+        <span class="choix"> Date d'expiration </span>
+      </div>
+      <div class="option"> <ion-checkbox>Devoirs a rendre : </ion-checkbox> </div>          
+
+      <ion-popover trigger="popover-button" [dismissOnSelect]="true" mode="ios">
+        <ng-template>
+          <ion-content>
+            <ion-list>
+              <ion-item [button]="true" [detail]="false">Date d'expiration</ion-item>
+              <ion-item [button]="true" [detail]="false">Date d'envoi</ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+  </div>
+
+  <ion-list class="devoir">
+        <app-evaluation-card *ngFor="let eval of Evals,index as i" [Evaluation]="eval" [index]="i"></app-evaluation-card>    
+  </ion-list>
+
+</ion-content>
