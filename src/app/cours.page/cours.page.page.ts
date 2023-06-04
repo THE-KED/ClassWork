@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { ClasseServiceService } from '../service/classe.service.service';
+import { Classe } from '../Models/Classe';
 
 @Component({
   selector: 'app-cours.page',
@@ -8,22 +9,28 @@ import { AlertController } from '@ionic/angular';
 })
 export class CoursPagePage implements OnInit {
 
-  constructor(private alertCtrl:AlertController) { }
+  isOpend=false
+  isAlertOpen = false;
+  public alertButtons = ['OK'];
+  public header ={
+    text:"Base de donnee",
+  };
+
+  myClasses:Classe[]=[];
+  constructor(private classeServ:ClasseServiceService) { }
 
   ngOnInit() {
+
+    this.classeServ.ClasseSubject.subscribe((data)=>{
+      this.myClasses = data;
+    })
+    this.classeServ.emitClasse();
+
   }
 
+  setOpen(isOpen: boolean) {
+    this.isAlertOpen = isOpen;
+  }
 
-  async presentAlert() {
-    const alert = await this.alertCtrl.create({
   
-      header: 'Alert',
-      subHeader: 'Important message',
-      message: 'This is an alert!',
-      buttons: ['OK'],
-      cssClass:"alt",
-    });
-
-    await alert.present();
-  }
 }

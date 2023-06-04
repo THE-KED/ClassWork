@@ -3,14 +3,14 @@ import { Evaluation } from "./Evaluation";
 import { Student } from "./Student";
 import { Teacher } from "./Teacher";
 
-export class Classe {
+export class ClasseRepo {
 
-    private id!:number;
-    private name!:string;
-    private teacher!:Teacher;
-    private students!:Array<Student>;
-    private evaluations!:Array<Evaluation>;
-    private assignments!:Array<Assignment>;
+    id!:number;
+    name!:string;
+    teacher!:Teacher;
+    students!:Array<Student>;
+    evaluations!:Array<Evaluation>;
+    assignments!:Array<Assignment>;
 
     constructor(){
 

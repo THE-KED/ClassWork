@@ -5,7 +5,7 @@
     </span>
     <span class="date">
       Debut le : {{evaluation.getStartDate() | date:"dd MMM yyyy"}}<br>
-      A : {{evaluation.getDuree()|date:"hh:mm"}}
+      A : {{evaluation.getStartDate()|date:"HH:mm"}}
     </span>
   </div>
   <div class="body">
@@ -28,5 +28,5 @@
       </span>
     </span>
   </div>
-  <ion-button [routerLink]="['/exam' , index ]"  class="btn-{{evaluation.getType()}}"> COMMENCER </ion-button>
+  <ion-button [routerLink]="['/exam' , index ]"  class="btn-{{evaluation.getType()}}" [disabled]="!btnActive()" > COMMENCER </ion-button>
 </div>

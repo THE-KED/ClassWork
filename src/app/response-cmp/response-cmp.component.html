@@ -1,7 +1,7 @@
-<div class="content">
-  <ion-item class="reponse" *ngFor=" let reponse of question.getChoices(), index as i ">
-    <ion-checkbox [(ngModel)]="val[i]" ></ion-checkbox>
+<ion-list class="content">
+  <section *ngFor=" let reponse of question.getChoices(), index as i " class="{{response[i]}}" >
+    <ion-checkbox [(ngModel)]="val[i]" [disabled]="!question.getValide()"></ion-checkbox>
     <p>{{reponse}}</p>
-  </ion-item>
-  <ion-button color="primary" (click)="valider()">VALIDER</ion-button>
-</div>
+  </section>
+  <ion-button color="primary" (click)="valider()" [disabled]="!question.getValide()">VALIDER</ion-button>
+</ion-list>

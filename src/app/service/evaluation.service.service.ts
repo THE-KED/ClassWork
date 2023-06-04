@@ -40,7 +40,7 @@ export class EvaluationServiceService {
 
     let question = new Question();
     question.setStatement("qwertyuiopqwertyuio qwertyuioqwertyuqwertyuwertyuioertyuiowertyuiowertyuiowertyuiertyuiowertyuiwertyuiwertyu");
-    question.setAnswer([1]);
+    question.setAnswer([0,3]);
     question.setDuration(60000);
     question.setChoices(["wqeqweqweqweqwewq","qweqwewqsadqweas","dfdsfewrpoiasdklqer",
   "aweqweqweasd"]);
@@ -61,7 +61,7 @@ export class EvaluationServiceService {
     this.eval.setId(1);
     this.eval.setDuree(new Date(0, 0, 0, 45, 0));
     this.eval.setExpiration(new Date(2023-7-1));
-    this.eval.setStartDate(new Date(2023-6-26));
+    this.eval.setStartDate(new Date(Date.now()+60000));
     this.eval.setInstructions("test");
     this.eval.setClasse(classe);
     this.eval.setQuestionnaire(questionnaire);
@@ -105,7 +105,18 @@ export class EvaluationServiceService {
 
     this.currentExam.setProposition(temp);
   }
-
+  public changeValid(index:number,indexQ:number,isValid:boolean){
+    let E= this.evaluations[index];
+    let T = E.getQuestionnaire();
+    let temp = T.getQuestions();
+    let Q = temp[indexQ];
+    Q.setValide(isValid);
+    temp[indexQ]=Q;
+    T.setQuestions(temp);
+    E.setQuestionnaire(T);
+    this.evaluations[index]=E;
+    this.refrech();
+  }
   upIndex(){
     this.indexQ++;
   }

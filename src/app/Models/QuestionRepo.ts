@@ -1,15 +1,15 @@
 import { Answer } from "./Answer";
 import { Questionnaire } from "./Questionnaire";
 
-export class Question{
+export class QuestionRepo{
 
-    private id!:number;
-    private statement!:string;
-    private choices:Array<string>;
-    private duration!:number;
-    private answer!:number[];
-    private questionnaire!:Questionnaire;
-    private valide:boolean=true;
+    id!:number;
+    statement!:string;
+    choices:Array<string>;
+    duration!:number;
+    answer!:number[];
+    questionnaire!:Questionnaire;
+
 
     constructor(){
         this.choices=[];        
@@ -61,14 +61,6 @@ export class Question{
 
     public setQuestionnaire(questionnaire: Questionnaire): void {
         this.questionnaire = questionnaire;
-    }
-
-    public getValide(): boolean {
-        return this.valide;
-    }
-
-    public setValide(valide: boolean): void {
-        this.valide = valide;
     }
    
 

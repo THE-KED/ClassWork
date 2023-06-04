@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthentificationService } from '../service/authentification.service';
 
 @Component({
   selector: 'app-sign',
@@ -8,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class SignPage implements OnInit {
   Matricule:string;
   Pass:string;
+  Name:string;
 
   isValid:boolean;
+  Email: string;
 
-  constructor() {
+  constructor(private authServ:AuthentificationService) {
     this.Matricule="";
-    this.Pass=""
+    this.Pass="";
+    this.Name="";
+    this.Email="";
     this.isValid=false;
    }
 
@@ -32,5 +37,7 @@ export class SignPage implements OnInit {
   send(){
     console.log("Mat: "+this.Matricule)
     console.log("Pass: "+this.Pass);
+
+    this.authServ.sign(this.Name,this.Email,this.Matricule,this.Pass);
   }
 }

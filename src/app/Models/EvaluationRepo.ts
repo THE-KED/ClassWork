@@ -2,18 +2,20 @@ import { Classe } from "./Classe";
 import { EvalType } from "./Enumerations/EvaluationType";
 import { Questionnaire } from "./Questionnaire";
 
-export class Evaluation {
+export class EvaluationRepo {
 
-    private id!:number;
-    private Title!:string;
-    private instructions!:string;
-    private duree!:Date;
-    private type!:EvalType;
-    private StartDate!:Date
-    private expiration!:Date;
-    private Questionnaire!:Questionnaire;
-    private classe!:Classe;
-    private correcetion:boolean=false;
+    id!:number;
+    Title!:string;
+    instructions!:string;
+    duree!:Date;
+    type!:EvalType;
+    StartDate!:Date
+    expiration!:Date;
+    Questionnaire!:Questionnaire;
+    classe!:Classe;
+
+
+
 
 
     constructor(){
@@ -90,12 +92,5 @@ export class Evaluation {
     public setType(type: EvalType): void {
         this.type = type;
     }
-    
-    public isCorrecetion(): boolean {
-        return this.correcetion;
-    }
 
-    public setCorrecetion(correcetion: boolean): void {
-        this.correcetion = correcetion;
-    }
 }

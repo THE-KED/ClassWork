@@ -14,10 +14,17 @@ export class ResponseCmpComponent  implements OnInit,OnChanges{
   @Input("question")
   question!:Question;
 
+  @Input("indexE")
+  indexE!:number;
+  @Input("indexQ")
+  indexQ!:number;
+
   prop:Proposition;
   index!:number
 
   val:boolean[]
+
+  response:string[]=[];
 
   constructor(private EvalServ:EvaluationServiceService) { 
     this.prop=new Proposition();
@@ -26,10 +33,21 @@ export class ResponseCmpComponent  implements OnInit,OnChanges{
 
   ngOnInit() {
 
+    for(let n=0;n<this.question.getChoices().length;n++){
+        this.response[n]="";
+
+    }
 
     for(let i=0; i<this.question.getChoices().length; i++){
-      this.val.push(false);
+      this.val.push(true);
+      for(let n of this.question.getAnswer()){
+        if(i==n)
+          this.response[i]="reponse";
+      }
+
     }
+
+    console.log(this.response)
 
     this.EvalServ.indexSubject.subscribe((data:number)=>{
       this.index=data;
@@ -39,6 +57,8 @@ export class ResponseCmpComponent  implements OnInit,OnChanges{
 
 
     console.log("reponse indexQ = "+this.index);
+
+
     
   }
 
@@ -49,7 +69,7 @@ export class ResponseCmpComponent  implements OnInit,OnChanges{
     console.log("change");
 
     for(let i=0; i<this.question.getChoices().length; i++){
-      this.val.push(false);
+      this.val.push(true);
     }
 
     this.EvalServ.indexSubject.subscribe((data:number)=>{

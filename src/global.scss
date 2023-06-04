@@ -25,7 +25,82 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-.alt{
-    // --background: red !important;
-    color: #22A2E3 !important;
-   }
+.modal{
+    --width: 250px;
+    --height: 300px;
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --border-radius: 4px;
+
+}
+ion-modal::part(backdrop) {
+    background: rgba(209, 213, 219);
+    opacity: 1;
+}
+
+.modal-content{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center;
+    height: 100%;
+
+    ion-button{
+        width: 230px;
+        margin-left: 10px;
+        bottom: 0;
+    }
+}
+.Md-title{
+    height: 100px;
+    width: 230px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #D9D9D9;
+
+    font-family: 'Roboto-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.05em;
+
+    color: #FFFFFF;
+    border-radius: 4px;
+}
+.creat{
+
+    margin-left: 117px;
+    margin-top: 10px;
+
+    font-family: 'Roboto-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.05em;
+
+color: rgba(0, 0, 0, 0.75);
+}
+.mid{
+    margin-left: 10px;
+    font-family: 'Roboto-Medium';
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    letter-spacing: 0.05em;
+
+color: rgba(0, 0, 0, 0.75);
+}

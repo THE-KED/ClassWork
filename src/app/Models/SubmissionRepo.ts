@@ -2,12 +2,12 @@ import { Proposition } from "./Proposition";
 import { Questionnaire } from "./Questionnaire";
 import { Student } from "./Student";
 
-export class Submission {
+export class SubmissionRepo {
 
-    private id!:number;
-    private student!:Student;
-    private proposition!:Array<Proposition>;
-    private questionnaire!:Questionnaire;
+    id!:number;
+    student!:Student;
+    proposition!:Array<Proposition>;
+    questionnaire!:Questionnaire;
 
 
     constructor(){

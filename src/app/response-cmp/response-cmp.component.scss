@@ -22,13 +22,17 @@
         right: 20px;
     }
 }
-ion-item{
+section{
     display: flex;
     flex-direction: row;
+    width: 100% !important;
+
     p{
         margin-left: 15px;
 
     }
 }
-
+.reponse{
+    background: #42d77d;
+}
 

@@ -15,6 +15,7 @@ export class ExamPage implements OnInit {
   eval!:Evaluation[]
   indexQ:number;
   length:number;
+  index!:number;
   constructor(private evalserv:EvaluationServiceService,
     private route:ActivatedRoute,private router:Router) {
       this.indexQ=0;
@@ -23,7 +24,7 @@ export class ExamPage implements OnInit {
 
   ngOnInit() {
     let index= this.route.snapshot.paramMap.get("index");
-    let i:number = +index!;
+    this.index = +index!;
     this.evalserv.evalSubject.subscribe((data:Evaluation[])=>{
     
       this.eval=data;
@@ -31,7 +32,7 @@ export class ExamPage implements OnInit {
     });
     this.evalserv.refrech();
 
-    this.questions = this.eval[i].getQuestionnaire();
+    this.questions = this.eval[this.index].getQuestionnaire();
     console.log(this.questions);
 
     this.length = this.questions.getQuestions().length;

@@ -9,14 +9,17 @@
     <div class="pan">
 
         <span class="form-title"> 
-          <p class="title">Bienvenue!</p>
+          <!-- <p class="title">Bienvenue!</p> -->
           Inscrivez vous a Classwork pour continuer
         </span>
         
         <span class="panInput">
 
           <ion-item>
-            <ion-input label="Mom" fill="outline" labelPlacement="floating" placeholder="" [(ngModel)]="Matricule" (ngModelChange)="check()"></ion-input>
+            <ion-input label="Mom et Prenom" fill="outline" labelPlacement="floating" placeholder="" [(ngModel)]="Name" (ngModelChange)="check()"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label="Email" fill="outline" labelPlacement="floating" placeholder="" [(ngModel)]="Email" (ngModelChange)="check()"></ion-input>
           </ion-item>
           <ion-item>
             <ion-input label="Matricule" fill="outline" labelPlacement="floating" placeholder="" [(ngModel)]="Matricule" (ngModelChange)="check()"></ion-input>

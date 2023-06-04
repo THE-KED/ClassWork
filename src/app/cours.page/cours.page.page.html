@@ -14,12 +14,31 @@
 
   <div class="filter-bar">
     <ion-searchbar animated="true" placeholder="identifiant" mode="ios"></ion-searchbar>
-    <ion-button class="search-btn" fill="clear"> Rechercher </ion-button>
+    <ion-button class="search-btn" fill="clear" (click)="setOpen(true)"> Rechercher </ion-button>
   </div>
 
+  <ion-modal [isOpen]="isAlertOpen" mode="ios" class="modal"
+  [backdropDismiss]="false">
+    <ng-template>
+      <ion-content >
+        <div class="modal-content">
+          <div class="Md-title">BASE DE DONNEE</div>
+          <span class="creat">Cree le :<a> 20 mai 2020 </a></span>
+          <div class="mid">
+            <p>Professeur :<a>KEWOU ERIC</a></p>
+            <a>134 Etudiants</a><br>
+          </div>
+          
+          <ion-button mode="md">REJOINDRE</ion-button>
+          <ion-button mode="md" fill="outline" color="danger" (click)="setOpen(false)">Annuler</ion-button>
+        </div>
+      </ion-content>
+    </ng-template>
 
-  <ion-list>
-    <app-cours-cour-card></app-cours-cour-card>
+  </ion-modal>
+
+
+  <ion-list *ngIf="myClasses.length!=0">
+    <app-cours-cour-card *ngFor="let cl of myClasses" [classe]="cl"></app-cours-cour-card>
   </ion-list>
-
 </ion-content>
