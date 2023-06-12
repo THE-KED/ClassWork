@@ -1,4 +1,7 @@
-export class Proposition {
+import { Serializable } from "./Interfaces/Serializable";
+import { PropositionRepo } from "./PropositionRepo";
+
+export class Proposition implements Serializable<PropositionRepo,Proposition>{
     
     private id!:number;
     private reponse!:boolean[];
@@ -6,6 +9,16 @@ export class Proposition {
 
     constructor(){
         this.reponse=[];
+    }
+    build(data: PropositionRepo): Proposition {
+
+        this.id=data.id;
+        // for(let i=0;i<data.values.length;i++){
+        //     temp=data.submission.questionnaire.questions;
+        //     if(data.values[i]==data.submission.questionnaire.questions)
+        // }
+
+        return this;
     }
 
     public getId(): number {

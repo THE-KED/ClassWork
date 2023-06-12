@@ -1,8 +1,10 @@
+import { Serializable } from "./Interfaces/Serializable";
 import { Proposition } from "./Proposition";
 import { Questionnaire } from "./Questionnaire";
 import { Student } from "./Student";
+import { SubmissionRepo } from "./SubmissionRepo";
 
-export class Submission {
+export class Submission implements Serializable<SubmissionRepo,Submission>{
 
     private id!:number;
     private student!:Student;
@@ -12,6 +14,31 @@ export class Submission {
 
     constructor(){
         this.proposition=[];
+    }
+    build(data: SubmissionRepo): Submission {
+        this.id= data.id;
+
+        try {
+            this.student=new Student().build(data.student);
+        }catch{
+
+        }
+        try {
+            for(let i=0;1<data.propositions.length;i++){
+                this.proposition.push(new Proposition().build(data.propositions[i]));
+            }
+        }catch{
+
+        }
+
+        try {
+            this.questionnaire=new Questionnaire().build(data.questionnaire);
+        }catch{
+
+        }
+
+
+        return this;
     }
 
     public getId(): number {

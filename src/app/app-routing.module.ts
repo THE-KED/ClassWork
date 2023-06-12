@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'evaluations-display',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {

@@ -1,5 +1,6 @@
-import { Copie } from "./Copie";
+import { ClasseRepo } from "./ClasseRepo";
 import { CopieRepo } from "./CopieRepo";
+import { SubmissionRepo } from "./SubmissionRepo";
 
 export class StudentRepo{
 
@@ -13,6 +14,8 @@ export class StudentRepo{
     phone!:string;
     role!:string;
     copies!:CopieRepo[];
+    submissions!:SubmissionRepo[];
+    classes!:ClasseRepo[];
 
     constructor(){
         this.copies=[];

@@ -1,5 +1,5 @@
-export class TeacherRepo{
-
+export class TeacherRepo {
+    
     id!:number;
     registrationNumber!:string;
     firstName!: string;

@@ -1,67 +1,17 @@
-import { Answer } from "./Answer";
-import { Questionnaire } from "./Questionnaire";
+import { QuestionnaireRepo } from "./QuestionnaireRepo";
 
 export class QuestionRepo{
 
     id!:number;
     statement!:string;
-    choices:Array<string>;
+    choices:Array<string>=[];
     duration!:number;
-    answer!:number[];
-    questionnaire!:Questionnaire;
+    answer:Array<string>=[];
+    questionnaire!:QuestionnaireRepo;
 
 
     constructor(){
         this.choices=[];        
     }
-
-    public getId(): number {
-        return this.id;
-    }
-
-    public setId(id: number): void {
-        this.id = id;
-    }
-
-    public getStatement(): string {
-        return this.statement;
-    }
-
-    public setStatement(statement: string): void {
-        this.statement = statement;
-    }
-
-    public getChoices(): Array<string> {
-        return this.choices;
-    }
-
-    public setChoices(choices: Array<string>): void {
-        this.choices = choices;
-    }
-
-    public getDuration(): number {
-        return this.duration;
-    }
-
-    public setDuration(duration: number): void {
-        this.duration = duration;
-    }
-
-    public getAnswer(): number[] {
-        return this.answer;
-    }
-
-    public setAnswer(answer: number[]): void {
-        this.answer = answer;
-    }
-
-    public getQuestionnaire(): Questionnaire {
-        return this.questionnaire;
-    }
-
-    public setQuestionnaire(questionnaire: Questionnaire): void {
-        this.questionnaire = questionnaire;
-    }
-   
 
 }

@@ -4,13 +4,8 @@ import { LoadingController, NavController, ToastController } from '@ionic/angula
 import { ToastBuilder } from '../Utils/ToastBuilder';
 import { Student } from '../Models/Student';
 import { StudentRepo } from '../Models/StudentRepo';
-import { Subject } from 'rxjs';
-import { StudentToken } from '../Models/StudentToken';
+import { Classe } from '../Models/Classe';
 
-
-
-const ACCESS_TOKEN_KEY = 'my-access-token';
-const REFRESH_TOKEN_KEY = 'my-refresh-token';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +13,8 @@ const REFRESH_TOKEN_KEY = 'my-refresh-token';
 export class AuthentificationService {
 
 
-  currentStudent!:Student;
-  private token:string="eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwiaWF0IjoxNjg1ODA2NjM1LCJzY29wZSI6IlNUVURFTlQifQ.b0xgwDPC12rskj43HGidE4p5HMc24waO4IoTHJtqFwkMBs6k3IoUyrxAKfaMatRcnfMn4SPdfJDPmHgCocsKy69ngYJWgas7WhNzHh2R2GtcWnImEa7NR8c19nt_z0-9wc-A-DCuiDN6lVDRgpxqKV2R8Obs6Cz11SLa5FQxYnBZkxggDmCOLWCDk26BtdAoFq8Uhr1jalLAbFrvQO7v9tpUfTyqiGWBcJGOu4rWZ66iEgVo6XARsRiqF3FiUrdt80xjAyBU2OYonOLIy-s0w8cfXsNQFCARk1dRPQh5f57UbEwh9bxQvOyuGaKD-j4E6CIEFp_fKtpzRdY-x089JQ";
-  public tokenSubject= new Subject<string>(); 
-  host:string = "http://192.168.254.169:8080/api/v1";
+  public currentStudent!:Student;
+  host:string = "http://localhost:8080/api/v1";
   isAuth:boolean=false;
   loading = this.loadingCtrl.create({
       message: 'Connection...',
@@ -35,9 +28,6 @@ export class AuthentificationService {
               ) { }
 
 
-  public emitToken(){
-    this.tokenSubject.next(this.token);
-  }
 
   async showToast(nom:string){
     let toastBuilder: ToastBuilder;
@@ -64,7 +54,7 @@ export class AuthentificationService {
 
     (await this.loading).present();
 
-    this.http.post(this.host+"/student",KED,options).subscribe(
+    this.http.post(this.host+"/student",KED).subscribe(
       response=>
       {
         console.log(response)
@@ -72,6 +62,7 @@ export class AuthentificationService {
         this.currentStudent= (new Student()).build(student);
 
         console.log("Email :"+this.currentStudent.getEmail());
+        console.log("id"+this.currentStudent.getId());
       },
   
       async (err)=> {
@@ -101,30 +92,33 @@ export class AuthentificationService {
     console.log(header);
 
     (await this.loading).present();
-    this.http.post(this.host+"/auth/student/token",null,{headers:header}).subscribe(data=>{
+    this.http.post(this.host+"/student/loginEmail",{"email":Email,"password":Pass}).subscribe((data)=>{
 
       console.log(data);
-
-      let user = data as StudentToken;
-
-      this.token=user.token;
-      // this.storage.setItem('ACCESS-TOKEN',this.token);
-      this.currentStudent= (new Student()).build(user.user);
+      const jsonObj= JSON.stringify(data);
+      const obj=JSON.parse(jsonObj);
+      const classes = obj.classes;
+      this.currentStudent= Object.assign(new Student(),obj);
+      this.currentStudent.setClasses(Object.assign(new Array<Classe>(),classes));
       console.log("name : "+this.currentStudent.getFirstName());
+      console.log(this.currentStudent);
 
     },async (err)=>{
       (await this.loading).dismiss();
+      this.loading = this.loadingCtrl.create({
+        message: 'Connection...',
+     });
       console.log("ERROR");
       console.log(err);
     },async ()=>{
+      console.log(this.currentStudent.getClasses());
+
       (await this.loading).dismiss();
       this.navCtrl.setDirection('root')
       this.navCtrl.navigateForward("home").then(()=>{
-        this.showToast("KED");
+        this.showToast(this.currentStudent.getFirstName());
       });
     });
 
   }
-
-  
 }

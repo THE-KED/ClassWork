@@ -1,6 +1,6 @@
 export enum EvalType{
 
-    Test="TEST",
+    Test="OPENED",
     Synchro="SYNCHRO",
     SynchroTQ="SYNCHROTQ"
 }

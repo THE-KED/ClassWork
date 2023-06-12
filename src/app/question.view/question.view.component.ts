@@ -26,39 +26,46 @@ export class QuestionViewComponent  implements OnInit , OnChanges{
    }
   ngOnChanges(changes: SimpleChanges): void {
 
-    this.Time = new Date(this.question.getDuration());
 
-    console.log("duree : "+this.question.getDuration())
-    if(this.question.getDuration()!=null){
-      const Timer = interval(1000).subscribe(()=>{
+    if(this.question.getValide()){
+      this.Time = new Date(this.question.getDuration());
 
-        let temp = this.question.getDuration();
-        this.question.setDuration(temp-1000);
-        
-        if(this.question.getDuration()<=0){
-          Timer.unsubscribe();
-          this.evalServ.changeValid(this.index,this.indexQ,false);
-        }
-      });
+      console.log("duree : "+this.question.getDuration())
+      if(this.question.getDuration()!=null){
+        const Timer = interval(1000).subscribe(()=>{
+  
+          let temp = this.question.getDuration();
+          this.question.setDuration(temp-1000);
+          
+          if(this.question.getDuration()<=0){
+            Timer.unsubscribe();
+            this.evalServ.changeValid(this.index,this.indexQ,false);
+          }
+        });
+      }
     }
+
+   
   }
 
   ngOnInit() {
 
-    this.Time = new Date(this.question.getDuration());
+    if(this.question.getValide()){
+      this.Time = new Date(this.question.getDuration());
 
-    console.log("duree : "+this.question.getDuration())
-    if(this.question.getDuration()!=null){
-      const Timer = interval(1000).subscribe(()=>{
-
-        let temp = this.question.getDuration();
-        this.question.setDuration(temp-1000);
-        
-        if(this.question.getDuration()<=0){
-          Timer.unsubscribe();
-          this.evalServ.changeValid(this.index,this.indexQ,false);
-        }
-      });
+      console.log("duree : "+this.question.getDuration())
+      if(this.question.getDuration()!=null){
+        const Timer = interval(1000).subscribe(()=>{
+  
+          let temp = this.question.getDuration();
+          this.question.setDuration(temp-1000);
+          
+          if(this.question.getDuration()<=0){
+            Timer.unsubscribe();
+            this.evalServ.changeValid(this.index,this.indexQ,false);
+          }
+        });
+      }
     }
 
   }

@@ -1,4 +1,5 @@
 .content{
+    overflow-y: auto;
     box-sizing: border-box;
 
     position: absolute;
@@ -22,17 +23,20 @@
         right: 20px;
     }
 }
+ion-checkbox{
+    margin-left: 15px;
+}
 section{
     display: flex;
     flex-direction: row;
     width: 100% !important;
+    align-items: center;
 
     p{
         margin-left: 15px;
-
     }
 }
 .reponse{
-    background: #42d77d;
+    background: #AFFDC5;
 }
 

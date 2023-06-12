@@ -1,18 +1,31 @@
-import { Answer } from "./Answer";
+import { Serializable } from "./Interfaces/Serializable";
+import { QuestionRepo } from "./QuestionRepo";
 import { Questionnaire } from "./Questionnaire";
 
-export class Question{
+export class Question implements Serializable<QuestionRepo,Question>{
 
     private id!:number;
     private statement!:string;
     private choices:Array<string>;
     private duration!:number;
-    private answer!:number[];
+    private answer:Array<number>=[];
     private questionnaire!:Questionnaire;
     private valide:boolean=true;
 
     constructor(){
         this.choices=[];        
+    }
+
+    build(data: QuestionRepo): Question {
+
+        this.id=data.id;
+        this.statement=data.statement;
+        this.duration=data.duration;
+        for(let i=0;i<this.answer.length;i++)
+        this.answer.push(i);
+        this.choices=data.choices;
+
+        return this;
     }
 
     public getId(): number {

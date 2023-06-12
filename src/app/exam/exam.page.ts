@@ -16,6 +16,8 @@ export class ExamPage implements OnInit {
   indexQ:number;
   length:number;
   index!:number;
+  point:string[]=["point-actif","point","point"];
+
   constructor(private evalserv:EvaluationServiceService,
     private route:ActivatedRoute,private router:Router) {
       this.indexQ=0;
@@ -49,6 +51,15 @@ export class ExamPage implements OnInit {
     if(this.indexQ<this.length-1){
       this.indexQ++;
       this.evalserv.upIndex();
+      if(this.point[0]=="point-actif"){
+        this.point[0]="point";
+        this.point[1]="point-actif";
+      }
+      if(this.indexQ==this.length-1){
+        this.point[0]="point";
+        this.point[1]="point";
+        this.point[2]="point-actif";
+      }
       
     }
   
@@ -60,6 +71,16 @@ export class ExamPage implements OnInit {
     if(this.indexQ>0){
       this.indexQ--;
       this.evalserv.downIndex();
+      if(this.point[2]=="point-actif"){
+        this.point[2]="point";
+        this.point[1]="point-actif";
+      }
+      if(this.indexQ==0){
+        this.point[2]="point";
+        this.point[1]="point";
+        this.point[0]="point-actif";
+      }
+      
     }
 
 

@@ -18,6 +18,7 @@ export class EvaluationsDisplayPage implements OnInit {
    }
 
   ngOnInit() {
+    this.evalServ.loadMyExam();
     this.evalServ.evalSubject.subscribe((data:Evaluation[])=>{
 
       this.Evals=data;

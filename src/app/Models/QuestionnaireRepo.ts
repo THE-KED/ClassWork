@@ -1,19 +1,16 @@
+import { Evaluation } from "./Evaluation";
 import { Question } from "./Question";
+import { QuestionRepo } from "./QuestionRepo";
+import { Submission } from "./Submission";
+import { SubmissionRepo } from "./SubmissionRepo";
 
 export class QuestionnaireRepo{
 
     id!:number;
     duration!:number;
-    questions!:Array<Question>;
-
-
-    public getQuestions(): Array<Question> {
-        return this.questions;
-    }
-
-    public setQuestions(questions: Array<Question>): void {
-        this.questions = questions;
-    }
+    questions!:Array<QuestionRepo>;
+    evaluation!:Evaluation;
+    submissions:Array<SubmissionRepo>=[];
 
 
     constructor(){

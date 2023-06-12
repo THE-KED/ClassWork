@@ -36,9 +36,9 @@
     </ion-button>
 
     <div class="pan-point">
-      <span class="point"></span>
-      <span class="point-actif"></span>
-      <span class="point"></span>
+      <span class="{{point[0]}}"></span>
+      <span class="{{point[1]}}"></span>
+      <span class="{{point[2]}}"></span>
     </div>
 
     <ion-button fill="Clear" class="swape-btn" (click)="next()" *ngIf="indexQ!=length-1">

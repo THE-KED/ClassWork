@@ -7,13 +7,17 @@ import { Question } from '../Models/Question';
 import { Questionnaire } from '../Models/Questionnaire';
 import { Submission } from '../Models/Submission';
 import { Proposition } from '../Models/Proposition';
+import { AuthentificationService } from './authentification.service';
+import { ClasseServiceService } from './classe.service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EvaluationServiceService {
 
-  private evaluations:Evaluation[]
+  private evaluations!:Evaluation[]
+
+  private classes!:Classe[];
 
   private currentExam:Submission;
 
@@ -29,7 +33,15 @@ export class EvaluationServiceService {
 
 
 
-  constructor() { 
+  constructor(private authServ:AuthentificationService,
+    private classeServ:ClasseServiceService,
+    ) { 
+
+      classeServ.ClasseSubject.subscribe((data:Classe[])=>{
+        this.classes=data;
+      });
+      classeServ.emitClasse();
+      
 
     this.indexQ=0;
     this.currentExam = new Submission();
@@ -83,6 +95,28 @@ export class EvaluationServiceService {
     this.SubmissionSubject.next(this.currentExam);
   }
 
+  loadMyExam(){
+    this.evaluations=[];
+    try{
+      for(let cls of this.classes){
+        try{
+          for(let ev of cls.getEvaluations()){
+            const ex :Evaluation =Object.assign(new Evaluation(),ev);
+            ex.setClasse(Object.assign(new Classe(),ex.getClasse()));
+            ex.setExpiration(new Date(ex.getExpiration()));
+            ex.setDuree(new Date(ex.getDuree()));
+            ex.setStartDate(new Date(ex.getStartDate()))
+            this.evaluations.push(ex);
+          }
+        }catch{
+  
+        }
+      }
+    }catch{}
+
+    console.log(this.evaluations);
+
+  }
 
   public initExam(questionnaire:Questionnaire){
 

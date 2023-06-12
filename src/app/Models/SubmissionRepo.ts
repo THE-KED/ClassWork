@@ -1,49 +1,20 @@
 import { Proposition } from "./Proposition";
+import { PropositionRepo } from "./PropositionRepo";
 import { Questionnaire } from "./Questionnaire";
+import { QuestionnaireRepo } from "./QuestionnaireRepo";
 import { Student } from "./Student";
+import { StudentRepo } from "./StudentRepo";
 
 export class SubmissionRepo {
 
     id!:number;
-    student!:Student;
-    proposition!:Array<Proposition>;
-    questionnaire!:Questionnaire;
-
+    student!:StudentRepo;
+    propositions:PropositionRepo[]=[];
+    questionnaire!:QuestionnaireRepo;
+    mark!:number;
+    time!:Date;
 
     constructor(){
-        this.proposition=[];
-    }
-
-    public getId(): number {
-        return this.id;
-    }
-
-    public setId(id: number): void {
-        this.id = id;
-    }
-
-    public getStudent(): Student {
-        return this.student;
-    }
-
-    public setStudent(student: Student): void {
-        this.student = student;
-    }
-
-    public getProposition(): Proposition[] {
-        return this.proposition;
-    }
-
-    public setProposition(proposition: Proposition[]): void {
-        this.proposition = proposition;
-    }
-
-    public getQuestionnaire(): Questionnaire {
-        return this.questionnaire;
-    }
-
-    public setQuestionnaire(questionnaire: Questionnaire): void {
-        this.questionnaire = questionnaire;
     }
 
 

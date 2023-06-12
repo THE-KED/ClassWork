@@ -1,15 +1,17 @@
 import { Classe } from "./Classe";
 import { EvalType } from "./Enumerations/EvaluationType";
+import { EvaluationRepo } from "./EvaluationRepo";
+import { Serializable } from "./Interfaces/Serializable";
 import { Questionnaire } from "./Questionnaire";
 
-export class Evaluation {
+export class Evaluation implements Serializable<EvaluationRepo,Evaluation>{
 
     private id!:number;
-    private Title!:string;
+    private title!:string;
     private instructions!:string;
     private duree!:Date;
     private type!:EvalType;
-    private StartDate!:Date
+    private time!:Date
     private expiration!:Date;
     private Questionnaire!:Questionnaire;
     private classe!:Classe;
@@ -18,6 +20,17 @@ export class Evaluation {
 
     constructor(){
         this.type=EvalType.Test;
+    }
+
+    build(data: EvaluationRepo): Evaluation {
+        this.id=data.id;
+        this.title=data.title;
+        this.time=data.time;
+        this.expiration=data.expiration;
+        this.classe=new Classe().build(data.classe);
+        this.Questionnaire=new Questionnaire().build(data.questionnaire); 
+
+        return this;
     }
 
     public getId(): number {
@@ -29,11 +42,11 @@ export class Evaluation {
     }
 
     public getTitle(): string {
-        return this.Title;
+        return this.title;
     }
 
     public setTitle(Title: string): void {
-        this.Title = Title;
+        this.title = Title;
     }
 
     public getInstructions(): string {
@@ -53,11 +66,11 @@ export class Evaluation {
     }
 
     public getStartDate(): Date {
-        return this.StartDate;
+        return this.time;
     }
 
     public setStartDate(StartDate: Date): void {
-        this.StartDate = StartDate;
+        this.time = StartDate;
     }
 
     public getExpiration(): Date {
@@ -90,7 +103,7 @@ export class Evaluation {
     public setType(type: EvalType): void {
         this.type = type;
     }
-    
+
     public isCorrecetion(): boolean {
         return this.correcetion;
     }

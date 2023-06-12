@@ -5,6 +5,7 @@ export class StudentToken{
 
     token!:string;
     user!:StudentRepo;
+    
     constructor(){
     }
 

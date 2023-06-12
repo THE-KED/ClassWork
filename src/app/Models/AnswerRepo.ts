@@ -1,5 +1,5 @@
 
-export class AnswerRepo {
+export class AnswerRepo{
 
 
     private id!:number;
