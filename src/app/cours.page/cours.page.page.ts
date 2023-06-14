@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClasseServiceService } from '../service/classe.service.service';
 import { Classe } from '../Models/Classe';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, MenuController } from '@ionic/angular';
 import { Student } from '../Models/Student';
 
 @Component({
@@ -31,7 +31,7 @@ export class CoursPagePage implements OnInit {
 });
 
   boo:boolean=false;
-  constructor(private classeServ:ClasseServiceService,private loadingCtrl:LoadingController) { }
+  constructor(private classeServ:ClasseServiceService,private loadingCtrl:LoadingController,private Menu:MenuController) { }
 
   ngOnInit() {
     this.myClasses=[];
@@ -58,6 +58,11 @@ export class CoursPagePage implements OnInit {
     })
 
   }
+
+  openMenu(){
+    this.Menu.open();
+  }
+
   close(){
     this.isAlertOpen = false
   }

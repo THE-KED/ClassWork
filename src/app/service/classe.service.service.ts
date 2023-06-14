@@ -14,7 +14,7 @@ export class ClasseServiceService {
   private classes:Array<Classe>;
   public ClasseSubject= new Subject<Array<Classe>>();
   fClasse!:Classe;
-  host:string = "http://192.168.232.169:8080/api/v1";
+  host:string = "http://localhost:8080/api/v1";
   // header: HttpHeaders= new HttpHeaders({
 
   //   Authorization:"Bearer "+this.authServ.token,  

@@ -102,10 +102,24 @@ export class EvaluationServiceService {
         try{
           for(let ev of cls.getEvaluations()){
             const ex :Evaluation =Object.assign(new Evaluation(),ev);
-            ex.setClasse(Object.assign(new Classe(),ex.getClasse()));
+            console.log("ex");
+            ex.setDuree(new Date(ex.getDuree()));
+            console.log(ex);
+            const qu :Questionnaire = Object.assign(new Questionnaire(),ex.getQuestionnaire());
+            console.log("qu");
+            console.log(qu);
+            let ql :Question[]=[];
+            console.log("questions: ");
+            console.log(qu.getQuestions());
+            for(let qt of qu.getQuestions()){
+              ql.push(Object.assign(new Question(),qt));
+            }
+            qu.setQuestions(ql);
+            ex.setClasse(cls);
             ex.setExpiration(new Date(ex.getExpiration()));
             ex.setDuree(new Date(ex.getDuree()));
             ex.setStartDate(new Date(ex.getStartDate()))
+            ex.setQuestionnaire(qu);
             this.evaluations.push(ex);
           }
         }catch{

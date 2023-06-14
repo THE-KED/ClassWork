@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Assignment } from '../Models/Assignment';
+import { AssignmentServiceService } from '../service/assignment.service.service';
 
 @Component({
   selector: 'app-assignment-cmp',
@@ -9,7 +11,11 @@ export class AssignmentCmpComponent  implements OnInit {
 
   ClasseName:string;
 
-  constructor() {
+  @Input("Assignment")
+  assignment!:Assignment;
+
+  file!:File;
+  constructor(private assignmentServ:AssignmentServiceService) {
 
     this.ClasseName="BASE DE DONNEES DEVOIR 2"
    }
@@ -20,5 +26,11 @@ export class AssignmentCmpComponent  implements OnInit {
      this.isModalOpen = isOpen;
     }
   ngOnInit() {}
+
+  send() {
+    if (this.file!=null){
+      this.assignmentServ.Send(this.file,this.assignment.getId());
+    }
+  }
 
 }

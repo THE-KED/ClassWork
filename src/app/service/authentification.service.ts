@@ -66,10 +66,12 @@ export class AuthentificationService {
       },
   
       async (err)=> {
+        this.isAuth=false;
         (await this.loading).dismiss();
         console.log("ERROR");
       },
       async ()=> {
+        this.isAuth=true;
         (await this.loading).dismiss();
         this.navCtrl.navigateForward("home").then(()=>{
         this.showToast(KED.getLastName())});
@@ -92,7 +94,7 @@ export class AuthentificationService {
     console.log(header);
 
     (await this.loading).present();
-    this.http.post(this.host+"/student/loginEmail",{"email":Email,"password":Pass}).subscribe((data)=>{
+    this.http.post(this.host+"/student/loginRegNumber",{"regNumber":Email,"password":Pass}).subscribe((data)=>{
 
       console.log(data);
       const jsonObj= JSON.stringify(data);
@@ -108,11 +110,12 @@ export class AuthentificationService {
       this.loading = this.loadingCtrl.create({
         message: 'Connection...',
      });
+     this.isAuth=false;
       console.log("ERROR");
       console.log(err);
     },async ()=>{
       console.log(this.currentStudent.getClasses());
-
+      this.isAuth=true;
       (await this.loading).dismiss();
       this.navCtrl.setDirection('root')
       this.navCtrl.navigateForward("home").then(()=>{

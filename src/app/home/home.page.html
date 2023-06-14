@@ -2,10 +2,43 @@
 <ion-menu contentId="main-content">
   <ion-header>
     <ion-toolbar color="tertiary">
-      <ion-title>Menu Content</ion-title>
+      <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">This is the menu content.</ion-content>
+  <ion-content class="ion-padding">
+    <ion-list>
+
+      <ion-item routerLink="/assignment.page">
+          <ion-icon name="book" color="primary"></ion-icon>
+        <span class="message-MENU">MES DEVOIRS</span>
+        <span class="bage"></span>
+      </ion-item>
+
+      <ion-item routerLink="/evaluations-display">
+          <ion-icon name="clipboard" color="secondary"></ion-icon>
+        <span class="message-MENU">MES EVALUATIONS</span>
+        <span class="bage"></span>
+      </ion-item>
+
+      <ion-item routerLink="/cours.page">
+          <ion-icon name="easel" color="danger"></ion-icon>
+        <span class="message-MENU">MES CLASSES</span>
+        <span class="bage"></span>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="person" color="success"></ion-icon>
+        <span class="message-MENU">MES INFORMATIONS</span>
+        <span class="bage"></span>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="notifications" color="warning"></ion-icon>
+        <span class="message-MENU">MES NOTIFICATIONS</span>
+        <span class="bage"></span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 </ion-menu>
 
 

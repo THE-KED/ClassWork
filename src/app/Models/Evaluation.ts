@@ -13,7 +13,7 @@ export class Evaluation implements Serializable<EvaluationRepo,Evaluation>{
     private type!:EvalType;
     private time!:Date
     private expiration!:Date;
-    private Questionnaire!:Questionnaire;
+    private questionnaire!:Questionnaire;
     private classe!:Classe;
     private correcetion:boolean=false;
 
@@ -28,7 +28,7 @@ export class Evaluation implements Serializable<EvaluationRepo,Evaluation>{
         this.time=data.time;
         this.expiration=data.expiration;
         this.classe=new Classe().build(data.classe);
-        this.Questionnaire=new Questionnaire().build(data.questionnaire); 
+        this.questionnaire=new Questionnaire().build(data.questionnaire); 
 
         return this;
     }
@@ -82,11 +82,11 @@ export class Evaluation implements Serializable<EvaluationRepo,Evaluation>{
     }
 
     public getQuestionnaire(): Questionnaire {
-        return this.Questionnaire;
+        return this.questionnaire;
     }
 
     public setQuestionnaire(Questionnaire: Questionnaire): void {
-        this.Questionnaire = Questionnaire;
+        this.questionnaire = Questionnaire;
     }
     public getClasse(): Classe {
         return this.classe;

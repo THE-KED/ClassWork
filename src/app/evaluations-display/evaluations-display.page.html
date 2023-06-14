@@ -1,9 +1,52 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="tertiary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+
+      <ion-item routerLink="/assignment.page">
+          <ion-icon name="book" color="primary"></ion-icon>
+        <span class="message-MENU">MES DEVOIRS</span>
+        <span class="bage"></span>
+      </ion-item>
+
+      <ion-item routerLink="/evaluations-display">
+          <ion-icon name="clipboard" color="secondary"></ion-icon>
+        <span class="message-MENU">MES EVALUATIONS</span>
+        <span class="bage"></span>
+      </ion-item>
+
+      <ion-item routerLink="/cours.page">
+          <ion-icon name="easel" color="danger"></ion-icon>
+        <span class="message-MENU">MES CLASSES</span>
+        <span class="bage"></span>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="person" color="success"></ion-icon>
+        <span class="message-MENU">MES INFORMATIONS</span>
+        <span class="bage"></span>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="notifications" color="warning"></ion-icon>
+        <span class="message-MENU">MES NOTIFICATIONS</span>
+        <span class="bage"></span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
 <ion-content [fullscreen]="true">
 
   <div color="primary" id="topBar">
-    <ion-button id="menu_btn" color="#FFFFFF" mode="ios">
+    <ion-menu-button id="menu_btn" color="#FFFFFF" mode="ios">
       <ion-icon name="menu-outline"></ion-icon>
-    </ion-button>
+    </ion-menu-button >
 
     <span id="page_title">EVALUATIONS</span>
     

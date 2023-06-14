@@ -1,22 +1,22 @@
 <div class="content">
   <div class="img">
     <span class="classeName">
-      {{ClasseName}}
+      {{assignment.getClasse().getName()}}
     </span>
     
   </div>
   <div class="infos" (click)="setOpen(true)">
 
     <div class="top">
-      REQUETTES SQL  
+      {{assignment.getTitle()}}  
       <ion-badge color="success"></ion-badge>
     </div>
     <div class="bottom">
       <span class="inf">Date limite :
-        <span class="val">26/05/2023</span>
+        <span class="val">{{assignment.getExpirationDate() |date :"dd MMM yyyy"}}</span>
       </span>
       <span class="inf">Fichier :
-        <span class="val">PDF</span>
+        <span class="val">{{assignment.getFileType()}}</span>
       </span>
       <span class="inf" id="rendu">RENDU </span>
     </div>
@@ -45,46 +45,43 @@
 
       <div class="img">
         <span class="classeName">
-          {{ClasseName}}
+          {{assignment.getClasse().getName()}}
         </span>
       </div>
 
       <div class="sub-info">
         <div class="date">
-          Depuis le : 20/05/2023<br>
-          Jusqu'au : 29/05/2023
+          Depuis le : {{assignment.getDateGiven() |date :"dd MMM yyyy"}}<br>
+          Jusqu'au : {{assignment.getExpirationDate() |date :"dd MMM yyyy"}}
         </div>
-        <div class="download">
-          inclue un fichier
-          <ion-icon name="download-outline"></ion-icon>
-        </div>
+        <a href="{{assignment.getDocument().getDocLink()}}" download> 
+          <div class="download" *ngIf="assignment.getDocument().getDocLink()">
+            inclue un fichier
+            <ion-icon name="download-outline"></ion-icon>
+          </div>
+        </a>
         <div class="type">
-          PDF
+          {{assignment.getFileType()}}
         </div>
 
       </div>
       
       <div class="description">
 
-        <h3>REQUETTES SQL</h3>
+        <h3>{{assignment.getTitle()}}</h3>
 
         <p>
-          Figma ipsum component variant main layer.
-          Horizontal variant stroke scrolling editor
-          link list. Mask team rotate link move create. 
-          Thumbnail group community overflow figjam 
-          overflow pencil. Flatten draft link opacity 
-          community layout.
+          {{assignment.getDescription()}}
         </p>
 
       </div>
       <div class="bottom">
         <div class="input-content">
           <ion-icon name="document-attach" color="primary" class="doc-icon"></ion-icon>
-          <span class="ftype">PDF :</span>
-          <input type="file" class="inp" placeholder="Fichier">
+          <span class="ftype">{{assignment.getFileType()}} :</span>
+          <input type="file" class="inp" placeholder="Fichier" [(ngModel)]="file">
         </div>
-        <ion-button class="send-btn" color="#FFFFFF" >
+        <ion-button class="send-btn" color="#FFFFFF"  (click)="send()">
           <ion-icon name="paper-plane" class="send-icon"></ion-icon>
               Envoyer   
         </ion-button>

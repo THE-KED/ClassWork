@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { interval } from 'rxjs';
 import { Question } from '../Models/Question';
 import { EvaluationServiceService } from '../service/evaluation.service.service';
+import { EvalType } from '../Models/Enumerations/EvaluationType';
 
 @Component({
   selector: 'app-question',
@@ -14,6 +15,8 @@ export class QuestionViewComponent  implements OnInit , OnChanges{
 
   @Input("question")
   question!:Question;
+  @Input("type")
+  evalType!:EvalType;
   @Input("index")
   index!:number;
   @Input("indexQ")
@@ -26,47 +29,51 @@ export class QuestionViewComponent  implements OnInit , OnChanges{
    }
   ngOnChanges(changes: SimpleChanges): void {
 
-
-    if(this.question.getValide()){
-      this.Time = new Date(this.question.getDuration());
-
-      console.log("duree : "+this.question.getDuration())
-      if(this.question.getDuration()!=null){
-        const Timer = interval(1000).subscribe(()=>{
+    if(this.evalType!=EvalType.Test){
+      if(this.question.getValide()){
+        this.Time = new Date(this.question.getDuration());
   
-          let temp = this.question.getDuration();
-          this.question.setDuration(temp-1000);
-          
-          if(this.question.getDuration()<=0){
-            Timer.unsubscribe();
-            this.evalServ.changeValid(this.index,this.indexQ,false);
-          }
-        });
+        console.log("duree : "+this.question.getDuration())
+        if(this.question.getDuration()!=null){
+          const Timer = interval(1000).subscribe(()=>{
+    
+            let temp = this.question.getDuration();
+            this.question.setDuration(temp-1000);
+            
+            if(this.question.getDuration()<=0){
+              Timer.unsubscribe();
+              this.evalServ.changeValid(this.index,this.indexQ,false);
+            }
+          });
+        }
       }
     }
-
    
   }
 
   ngOnInit() {
 
+
     if(this.question.getValide()){
       this.Time = new Date(this.question.getDuration());
 
       console.log("duree : "+this.question.getDuration())
-      if(this.question.getDuration()!=null){
-        const Timer = interval(1000).subscribe(()=>{
-  
-          let temp = this.question.getDuration();
-          this.question.setDuration(temp-1000);
-          
-          if(this.question.getDuration()<=0){
-            Timer.unsubscribe();
-            this.evalServ.changeValid(this.index,this.indexQ,false);
-          }
-        });
+      if(this.evalType!=EvalType.Test){
+        if(this.question.getDuration()!=null){
+          const Timer = interval(1000).subscribe(()=>{
+    
+            let temp = this.question.getDuration();
+            this.question.setDuration(temp-1000);
+            
+            if(this.question.getDuration()<=0){
+              Timer.unsubscribe();
+              this.evalServ.changeValid(this.index,this.indexQ,false);
+            }
+          });
+        }
       }
-    }
+      }
+
 
   }
 
